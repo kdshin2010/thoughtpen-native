@@ -6,26 +6,35 @@ import { PaperProvider } from 'react-native-paper';
 import { name as appName } from './app.json';
 import { Button } from 'react-native-paper';
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    position: 'relative',
+  },
+  box: {
+    width: 100,
+    height: 100,
+    backgroundColor: 'blue',
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: [{ translateX: -50 }, { translateY: -50 }],
+  },
+});
+
+
 
 
 export default function App() {
   return (
     <PaperProvider>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Open up App.js to start working on yEEEour eapp!</Text>
-      <Button icon="camera" mode="contained" onPress={() => console.log('Pressed')}>
-    Press me
-  </Button>
+      <View style={styles.container}>
+        <Button  mode="contained" onPress={() => console.log('Pressed')} style={styles.box}>
+          Press me
+        </Button>
+      </View>
+     
     </PaperProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
